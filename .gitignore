@@ -154,3 +154,5 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+guia_de_contribui_o_e_git.md
