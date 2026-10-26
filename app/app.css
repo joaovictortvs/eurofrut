@@ -3,6 +3,21 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --laranja-botao: #D96B27;        /* Usado em botões de ação e cotação */
+    --verde-claro-card: #E3EFE5;     /* Usado no fundo do card 'Sou Produtor' */
+    --verde-folha: #2D5A3A;          /* Usado em títulos de destaque e ícones */
+    --verde-escuro-footer: #111E15;  /* Usado no fundo da secção final e rodapé */
+    --fundo-pagina: #FAF7F2;         /* Usado no fundo geral do site e cards de frutas */
+    --texto-principal: #111111;      /* Usado nos títulos e textos escuros */
+}
+
+:root {
+  --laranja-botao: #D96B27;        /* Usado em botões de ação e cotação */
+  --verde-claro-card: #E3EFE5;     /* Usado no fundo do card 'Sou Produtor' */
+  --verde-folha: #2D5A3A;          /* Usado em títulos de destaque e ícones */
+  --verde-escuro-footer: #111E15;  /* Usado no fundo da secção final e rodapé */
+  --fundo-pagina: #FAF7F2;         /* Usado no fundo geral do site e cards de frutas */
+  --texto-principal: #111111;      /* Usado nos títulos e textos escuros */
 }
 
 html,
