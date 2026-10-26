@@ -9,15 +9,217 @@
     --verde-escuro-footer: #111E15;  /* Usado no fundo da secção final e rodapé */
     --fundo-pagina: #FAF7F2;         /* Usado no fundo geral do site e cards de frutas */
     --texto-principal: #111111;      /* Usado nos títulos e textos escuros */
+
+     /* Padding dos botões (vertical horizontal) */
+
+  /* "Ver catálogo e solicitar orçamento" */
+  --btn-catalogo-padding: 28px 15px;
+
+  /* 7x "Solicitar Cotação" (cards de fruta) */
+  --btn-cotacao-padding: 18px 22px;
+
+  /* "Calendário de safra" e "Solicitar visita técnica" */
+  --btn-faq-padding: 32px 26px;
+
+  /* "Enviar solicitação" (largura 100%, só o vertical foi medido) */
+  --btn-enviar-padding-y: 29px;
+  --btn-enviar-padding: var(--btn-enviar-padding-y) 0;
+
+  /* Filtros: "Toda", "Mercado interno", "Exportação" */
+  --btn-filtro-padding: 8px 27px;
+
+  /* Tamanho da fonte  */
+  --btn-catalogo-fonte: 32px;
+  --btn-cotacao-fonte: 28px;
+  --btn-faq-fonte: 33px;
+  --btn-enviar-fonte: 56px;
+  --btn-filtro-fonte: 30px;
+
+   /* ===== Campos de texto (Nome, Empresa, E-mail / WhatsApp) ===== */
+  --campo-altura: 92px;
+  --campo-raio: 24px;
+  --campo-bg: #739E82;              /* verde dos campos */
+  --campo-padding: 0 24px;          /* ESTIMATIVA: campo vazio, não dá para medir */
+
+  /* ===== Campo curto (Interesse) ===== */
+  --campo-curto-altura: 72px;
+  --campo-curto-largura: 426px;     /* ~59% da largura do campo cheio (719px) */
+
+  /* ===== Label ("Nome", "Empresa", ...) ===== */
+  --campo-label-fonte: 36px;        /* estimado pela altura da letra (26px) */
+  --campo-label-cor: #ECF6EE;
+  --campo-label-gap: 9px;           /* label -> campo (aprox.) */
+
+  /* ===== Espaço entre um grupo (label + campo) e o próximo ===== */
+  --campo-grupo-gap: 9px;           /* aprox.; campo -> label seguinte */
+
+  /* ===== Card do formulário ===== */
+  --form-card-bg: #2C4334;
+  --form-card-raio: 70px;
+  --form-card-padding: 60px 60px 39px;  /* topo, laterais, base */
+
+   /* ===== Card "Sou Comprador" / "Sou Produtor" (665 x ~940) ===== */
+  --card-perfil-largura: 665px;
+  --card-perfil-raio: 60px;
+  --card-perfil-bg: #FFFFFF;
+  --card-perfil-padding-x: 70px;        /* borda -> texto da descrição */
+  --card-perfil-icone: 115px;           /* círculo, centralizado na borda de cima do card (metade para fora) */
+  --card-perfil-titulo-top: 126px;      /* topo do card -> topo das letras do título */
+  --card-perfil-bloco-top: 368px;       /* topo do card -> início do bloco colorido da lista */
+  --card-perfil-bloco-altura: 572px;
+  --card-perfil-bloco-raio: 60px;
+  --card-perfil-bloco-comprador: #F8EDDE;
+  --card-perfil-bloco-produtor: #E4EEE6;
+  --card-perfil-bloco-padding: 48px 56px 94px;  /* topo (até a 1ª linha), laterais, base (abaixo do botão) */
+  --card-perfil-lista-gap: 49px;        /* distância entre as linhas dos itens da lista */
+
+  /* ===== Card de fruta (430 x 846) ===== */
+  --card-fruta-largura: 430px;
+  --card-fruta-raio: 36px;
+  --card-fruta-padding: 29px;           /* topo e laterais; a base é 42px */
+  --card-fruta-padding-base: 42px;
+  --card-fruta-gap-cards: 19px;
+  --card-fruta-img-raio: 16px;          /* imagem 371 x 393 */
+  --card-fruta-img-titulo: 21px;        /* imagem -> topo das letras do título */
+  --card-fruta-titulo-desc: 37px;       /* título -> descrição */
+  --card-fruta-desc-tags: 27px;         /* descrição -> tags (acompanha o texto) */
+  --card-fruta-tags-botao: 40px;        /* tags -> botão */
+  --tag-padding: 6px 16px;              /* tags "Caixa 4kg" / "Jun - Mar" (35px de altura) */
+  --tag-gap: 9px;
+  --tag-bg: #CFE3D1;
+
+  /* ===== Cards de qualidade: Seleção, Classificação, etc. (516 x 353) ===== */
+  --card-qualidade-largura: 516px;
+  --card-qualidade-altura: 353px;       /* altura mínima, todos iguais */
+  --card-qualidade-raio: 85px;
+  --card-qualidade-padding-x: 45px;
+  --card-qualidade-icone: 75px;         /* centralizado na borda de cima (metade para fora) */
+  --card-qualidade-titulo-top: 75px;    /* topo do card -> topo das letras do título */
+  --card-qualidade-desc-top: 157px;     /* topo do card -> topo da descrição */
+  --card-qualidade-gap-x: 17px;
+  --card-qualidade-gap-y: 88px;         /* inclui a metade do ícone que sai para fora */
+
+  /* ===== Card do FAQ (839 x ~813) ===== */
+  --card-faq-largura: 839px;
+  --card-faq-raio: 68px;
+  --card-faq-bg: #538960;
+  --card-faq-padding: 104px 22px 114px 50px;   /* topo, direita, base, esquerda */
+  --card-faq-item-altura: 132px;               /* item fechado (de linha a linha) */
+  --card-faq-item-aberto: 198px;               /* item aberto, com 3 linhas de texto */
+  --card-faq-titulo-fonte: 38px;               /* estimado */
+  --card-faq-icone: 32px;                      /* "+" e "–", 15px para dentro da linha */
+  --card-faq-corpo-linha: 31px;                /* altura de linha do texto da resposta */
 }
 
 :root {
-  --laranja-botao: #D96B27;        /* Usado em botões de ação e cotação */
+  --laranja-botao: #D96B27;   /* Usado em botões de ação e cotação */
+  --branco-botao: #EDF7EF;    /* fundo claro: "Solicitar visita técnica" e "Sou produtor,quero fornecer" */
+  --texto-escuro: #10241A;        /* texto escuro do botão claro */
   --verde-claro-card: #E3EFE5;     /* Usado no fundo do card 'Sou Produtor' */
   --verde-folha: #2D5A3A;          /* Usado em títulos de destaque e ícones */
   --verde-escuro-footer: #111E15;  /* Usado no fundo da secção final e rodapé */
   --fundo-pagina: #FAF7F2;         /* Usado no fundo geral do site e cards de frutas */
   --texto-principal: #111111;      /* Usado nos títulos e textos escuros */
+
+   /* Padding dos botões (vertical horizontal) */
+
+  /* "Ver catálogo e solicitar orçamento" */
+  --btn-catalogo-padding: 28px 15px;
+
+  /* 7x "Solicitar Cotação" (cards de fruta) */
+  --btn-cotacao-padding: 18px 22px;
+
+  /* "Calendário de safra" e "Solicitar visita técnica" */
+  --btn-faq-padding: 32px 26px;
+
+  /* "Enviar solicitação" (largura 100%) */
+  --btn-enviar-padding-y: 29px;
+  --btn-enviar-padding: var(--btn-enviar-padding-y) 0;
+
+  /* Filtros: "Toda", "Mercado interno", "Exportação" */
+  --btn-filtro-padding: 8px 27px;
+
+   /* Tamanho da fonte  */
+  --btn-catalogo-fonte: 32px;
+  --btn-cotacao-fonte: 28px;
+  --btn-faq-fonte: 33px;
+  --btn-enviar-fonte: 56px;
+  --btn-filtro-fonte: 30px;
+
+   /* ===== Campos de texto (Nome, Empresa, E-mail / WhatsApp) ===== */
+  --campo-altura: 72px;
+  --campo-raio: 24px;
+  --campo-bg: #739E82;              /* verde dos campos */
+  --campo-padding: 0 22px;        
+
+  /* ===== Campo curto (Interesse) ===== */
+  --campo-curto-largura: 59%;
+  --campo-curto-altura: 62px;     /* ~59% da largura do campo cheio */
+
+  /* ===== Label ("Nome", "Empresa", ...) ===== */
+  --campo-label-fonte: 36px;    
+  --campo-label-cor: #ECF6EE;
+  --campo-label-gap: 9px;           
+
+  /* ===== Espaço entre um grupo (label + campo) e o próximo ===== */
+  --campo-grupo-gap: 9px;           
+
+  /* ===== Card do formulário ===== */
+  --form-card-bg: #2C4334;
+  --form-card-raio: 70px;
+  --form-card-padding: 60px 60px 39px;  /* topo, laterais, base */
+
+   /* ===== Card "Sou Comprador" / "Sou Produtor" (665 x ~940) ===== */
+  --card-perfil-largura: 665px;
+  --card-perfil-raio: 60px;
+  --card-perfil-bg: #FFFFFF;
+  --card-perfil-padding-x: 70px;        /* borda -> texto da descrição */
+  --card-perfil-icone: 115px;           /* círculo, centralizado na borda de cima do card (metade para fora) */
+  --card-perfil-titulo-top: 126px;      /* topo do card -> topo das letras do título */
+  --card-perfil-bloco-top: 368px;       /* topo do card -> início do bloco colorido da lista */
+  --card-perfil-bloco-altura: 572px;
+  --card-perfil-bloco-raio: 60px;
+  --card-perfil-bloco-comprador: #F8EDDE;
+  --card-perfil-bloco-produtor: #E4EEE6;
+  --card-perfil-bloco-padding: 48px 56px 94px;  /* topo (até a 1ª linha), laterais, base (abaixo do botão) */
+  --card-perfil-lista-gap: 49px;        /* distância entre as linhas dos itens da lista */
+
+  /* ===== Card de fruta (430 x 846) ===== */
+  --card-fruta-largura: 430px;
+  --card-fruta-raio: 36px;
+  --card-fruta-padding: 29px;           /* topo e laterais; a base é 42px */
+  --card-fruta-padding-base: 42px;
+  --card-fruta-gap-cards: 19px;
+  --card-fruta-img-raio: 16px;          /* imagem 371 x 393 */
+  --card-fruta-img-titulo: 21px;        /* imagem -> topo das letras do título */
+  --card-fruta-titulo-desc: 37px;       /* título -> descrição */
+  --card-fruta-desc-tags: 27px;         /* descrição -> tags (acompanha o texto) */
+  --card-fruta-tags-botao: 40px;        /* tags -> botão */
+  --tag-padding: 6px 16px;              /* tags "Caixa 4kg" / "Jun - Mar" (35px de altura) */
+  --tag-gap: 9px;
+  --tag-bg: #CFE3D1;
+
+  /* ===== Cards de qualidade: Seleção, Classificação, etc. (516 x 353) ===== */
+  --card-qualidade-largura: 516px;
+  --card-qualidade-altura: 353px;       /* altura mínima, todos iguais */
+  --card-qualidade-raio: 85px;
+  --card-qualidade-padding-x: 45px;
+  --card-qualidade-icone: 75px;         /* centralizado na borda de cima (metade para fora) */
+  --card-qualidade-titulo-top: 75px;    /* topo do card -> topo das letras do título */
+  --card-qualidade-desc-top: 157px;     /* topo do card -> topo da descrição */
+  --card-qualidade-gap-x: 17px;
+  --card-qualidade-gap-y: 88px;         /* inclui a metade do ícone que sai para fora */
+
+  /* ===== Card do FAQ (839 x ~813) ===== */
+  --card-faq-largura: 839px;
+  --card-faq-raio: 68px;
+  --card-faq-bg: #538960;
+  --card-faq-padding: 104px 22px 114px 50px;   /* topo, direita, base, esquerda */
+  --card-faq-item-altura: 132px;               /* item fechado (de linha a linha) */
+  --card-faq-item-aberto: 198px;               /* item aberto, com 3 linhas de texto */
+  --card-faq-titulo-fonte: 38px;               /* estimado */
+  --card-faq-icone: 32px;                      /* "+" e "–", 15px para dentro da linha */
+  --card-faq-corpo-linha: 31px;                /* altura de linha do texto da resposta */
 }
 
 html,
