@@ -11,7 +11,7 @@ interface BotaoProps {
 
 export function Botao({text, onClick, corFundo, tamanho = "cotacao", corTexto}: BotaoProps){
     return(
-        <button onClick={onClick} style={{backgroundColor: `var(${corFundo})`, padding: `var(--btn-${tamanho}-padding)`, color: `${corTexto ? `var(${corTexto})`: undefined}`, fontSize: `var(--btn-${tamanho}-fonte)` }} className={`rounded-lg text-white font-bold transition-all hover:opacity-90 cursor-pointer ${tamanho === 'enviar' ? 'w-full' : ""}`}>
+        <button onClick={onClick} style={{backgroundColor: `var(${corFundo})`, padding: `var(--btn-${tamanho}-padding)`, color: `${corTexto ? `var(${corTexto})`: undefined}`, fontSize: `var(--btn-${tamanho}-fonte)` }} className={`rounded-full text-white font-bold transition-all hover:opacity-90 cursor-pointer ${tamanho === 'enviar' ? 'w-full' : ""}`}>
             {text}
         </button>
     )
