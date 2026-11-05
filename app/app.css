@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --fonte-principal: "Helvetica Neue", Arial, sans-serif; /* Nos Cards */
     --laranja-botao: #D96B27;        /* Usado em botões de ação e cotação */
+    --verde-botao: #4E945F;          /* "Quero ser parceiro" e ícone do Sou Produtor */
     --verde-claro-card: #E3EFE5;     /* Usado no fundo do card 'Sou Produtor' */
     --verde-folha: #2D5A3A;          /* Usado em títulos de destaque e ícones */
     --verde-escuro-footer: #111E15;  /* Usado no fundo da secção final e rodapé */
@@ -64,6 +66,11 @@
   --card-perfil-bg: #FFFFFF;
   --card-perfil-padding-x: 70px;        /* borda -> texto da descrição */
   --card-perfil-icone: 115px;           /* círculo, centralizado na borda de cima do card (metade para fora) */
+
+  /* texto da lista (herdado pelo conteúdo do bloco) */
+  --card-perfil-lista-cor: #0F2617;
+  --card-perfil-lista-fonte: 34px;
+
   --card-perfil-titulo-top: 126px;      /* topo do card -> topo das letras do título */
   --card-perfil-bloco-top: 368px;       /* topo do card -> início do bloco colorido da lista */
   --card-perfil-bloco-altura: 572px;
@@ -73,9 +80,13 @@
   --card-perfil-bloco-padding: 48px 56px 94px;  /* topo (até a 1ª linha), laterais, base (abaixo do botão) */
   --card-perfil-lista-gap: 49px;        /* distância entre as linhas dos itens da lista */
 
-  /* ===== Card de fruta (430 x 846) ===== */
+ /* ===== Card de fruta (430 x 846) ===== */
+  --card-fruta-titulo-fonte: 38px;
+  --card-fruta-desc-fonte: 34px;
+  --card-fruta-desc-linha: 30px;
   --card-fruta-largura: 430px;
   --card-fruta-raio: 36px;
+  --card-fruta-padding-x: 29px;
   --card-fruta-padding: 29px;           /* topo e laterais; a base é 42px */
   --card-fruta-padding-base: 42px;
   --card-fruta-gap-cards: 19px;
@@ -109,11 +120,38 @@
   --card-faq-titulo-fonte: 38px;               /* estimado */
   --card-faq-icone: 32px;                      /* "+" e "–", 15px para dentro da linha */
   --card-faq-corpo-linha: 31px;                /* altura de linha do texto da resposta */
+
+   /* cores (iguais nos 3 cards) */
+  --card-titulo-cor: #0F2617;
+  --card-desc-cor: #416A4E;
+
+  /* letter-spacing */
+  --card-titulo-tracking: -0.1em;
+  --card-desc-tracking: -0.05em;
+
+  /* Sou Comprador / Sou Produtor */
+  --card-perfil-titulo-fonte: 64px;
+  --card-perfil-desc-fonte: 34px;
+  --card-perfil-desc-linha: 30px;
+  --card-perfil-titulo-desc: 31px;
+
+  /* Fruta */
+  --card-fruta-titulo-fonte: 38px;
+  --card-fruta-desc-fonte: 34px;
+  --card-fruta-desc-linha: 30px;
+  --card-fruta-titulo-desc: 37px;
+
+  /* Qualidade (Seleção, Classificação...) */
+  --card-qualidade-titulo-fonte: 45px;
+  --card-qualidade-desc-fonte: 36px;
+  --card-qualidade-desc-linha: 32px;
+  --card-qualidade-titulo-desc: 41px;
 }
 
 :root {
   --laranja-botao: #D96B27;   /* Usado em botões de ação e cotação */
   --branco-botao: #EDF7EF;    /* fundo claro: "Solicitar visita técnica" e "Sou produtor,quero fornecer" */
+  --fonte-principal: "Helvetica Neue", Arial, sans-serif; /* Nos Cards */
   --texto-escuro: #10241A;        /* texto escuro do botão claro */
   --verde-claro-card: #E3EFE5;     /* Usado no fundo do card 'Sou Produtor' */
   --verde-folha: #2D5A3A;          /* Usado em títulos de destaque e ícones */
@@ -185,8 +223,12 @@
   --card-perfil-lista-gap: 49px;        /* distância entre as linhas dos itens da lista */
 
   /* ===== Card de fruta (430 x 846) ===== */
+  --card-fruta-titulo-fonte: 38px;
+  --card-fruta-desc-fonte: 34px;
+  --card-fruta-desc-linha: 30px;
   --card-fruta-largura: 430px;
   --card-fruta-raio: 36px;
+  --card-fruta-padding-x: 29px;
   --card-fruta-padding: 29px;           /* topo e laterais; a base é 42px */
   --card-fruta-padding-base: 42px;
   --card-fruta-gap-cards: 19px;
@@ -220,6 +262,35 @@
   --card-faq-titulo-fonte: 38px;               /* estimado */
   --card-faq-icone: 32px;                      /* "+" e "–", 15px para dentro da linha */
   --card-faq-corpo-linha: 31px;                /* altura de linha do texto da resposta */
+
+   /* cores (iguais nos 3 cards) */
+  --card-titulo-cor: #0F2617;
+  --card-desc-cor: #416A4E;
+
+  /* letter-spacing */
+  --card-titulo-tracking: -0.1em;
+  --card-desc-tracking: -0.05em;
+
+  /* Sou Comprador / Sou Produtor */
+  --card-perfil-titulo-fonte: 64px;
+  --card-perfil-desc-fonte: 34px;
+  --card-perfil-desc-linha: 30px;
+  --card-perfil-titulo-desc: 31px;
+  --card-perfil-lista-cor: #0F2617;
+
+  /* Fruta */
+  --card-fruta-titulo-fonte: 38px;
+  --card-fruta-desc-fonte: 34px;
+  --card-fruta-desc-linha: 30px;
+  --card-fruta-titulo-desc: 37px;
+
+  /* Qualidade (Seleção, Classificação...) */
+  --card-qualidade-titulo-fonte: 45px;
+  --card-qualidade-desc-fonte: 36px;
+  --card-qualidade-desc-linha: 32px;
+  --card-qualidade-titulo-desc: 41px;
+
+  
 }
 
 html,
@@ -229,4 +300,5 @@ body {
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+  font-family: var(--fonte-principal);
 }
