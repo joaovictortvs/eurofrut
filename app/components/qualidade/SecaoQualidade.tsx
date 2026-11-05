@@ -1,9 +1,10 @@
-import type { ReactNode } from "react";
-import { CardQualidade } from "./CardQualidade";
+import type { CSSProperties, ReactNode } from "react";
+import { Card } from "../componentsReutilizaveis/Card";
 
 function Svg({ children }: { children: ReactNode }) {
   return (
     <svg
+      className="h-1/2 w-1/2"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -15,6 +16,14 @@ function Svg({ children }: { children: ReactNode }) {
     </svg>
   );
 }
+
+// Cores desta seção. O Card do Dev 1 recebe o NOME de uma variável CSS,
+// então definimos as variáveis aqui, só para esta seção, sem mexer no app.css.
+const cores = {
+  "--qualidade-titulo-cor": "#0E2317",
+  "--qualidade-desc-cor": "#3F664F",
+  "--qualidade-icone-cor": "#E5892B",
+} as CSSProperties;
 
 const itens: { titulo: string; descricao: string; icone: ReactNode }[] = [
   {
@@ -96,7 +105,7 @@ export function SecaoQualidade() {
     <section
       id="qualidade"
       className="px-6 py-16"
-      style={{ backgroundColor: "var(--fundo-pagina)" }}
+      style={{ backgroundColor: "var(--fundo-pagina)", ...cores }}
     >
       <p
         className="mx-auto max-w-3xl text-center font-medium"
@@ -119,7 +128,19 @@ export function SecaoQualidade() {
         }}
       >
         {itens.map((item) => (
-          <CardQualidade key={item.titulo} {...item} />
+          // O wrapper centraliza o card na coluna e herda o text-center
+          // para a descrição (o Card só centraliza o título).
+          <div key={item.titulo} className="flex justify-center text-center">
+            <Card
+              variante="qualidade"
+              titulo={item.titulo}
+              descricao={item.descricao}
+              icone={item.icone}
+              corIcone="--qualidade-icone-cor"
+              corTitulo="--qualidade-titulo-cor"
+              corDescricao="--qualidade-desc-cor"
+            />
+          </div>
         ))}
       </div>
     </section>
