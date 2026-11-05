@@ -3,6 +3,9 @@ import { Header } from "../components/Header";
 import { Botao } from "../components/componentsReutilizaveis/Botao";
 import { CampoText } from "../components/componentsReutilizaveis/CampoText"
 import { Card } from "~/components/componentsReutilizaveis/Card";
+import Cabecalho from "../components/cabecalho/Cabecalho";
+import Hero from "../components/hero/Hero";
+import VoltarAoTopo from "../components/voltarAoTopo/VoltarAoTopo";
 
 import maracuja from "../img/maracuja.jpg";
 import logistica from "../img/icones/logistica.svg";
@@ -28,6 +31,10 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
+   <main className="w-full min-h-screen bg-white">
+    
+      <Cabecalho />
+      <Hero />
     <div className="max-w-md">
       {/*Header*/}
       {/*Body*/}
@@ -69,5 +76,7 @@ export default function Home() {
   ))}
       {/*Footer*/}
     </div>
+    <VoltarAoTopo />
+    </main>
   );
 }
