@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+/*
+  Único conjunto de tokens: tudo fica no :root.
+  O @theme só liga a fonte do Tailwind (classe font-sans) à fonte do projeto.
+
+  Tamanhos responsivos: clamp(mínimo, preferido em vw, máximo)
+  - o máximo é a medida do protótipo (em rem, 1rem = 16px)
+  - o preferido é o máximo / 18 em vw, ou seja, chega ao máximo em ~1800px de tela
+  - o mínimo é o que ainda fica legível em tela de celular (~360px)
+*/
+@theme inline {
+  --font-sans: var(--fonte-principal);
 }
 
-/* Todas as variáveis do projeto ficam só aqui (sem duplicar no @theme) */
 :root {
-  /* ===== Fonte ===== */
-  --fonte-principal: "Helvetica Neue", Arial, sans-serif; /* Nos Cards */
+  /* ===== Fonte (do protótipo) ===== */
+  --fonte-principal: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* ===== Cores gerais ===== */
   --laranja-botao: #D96B27;        /* Botões de ação e cotação */
@@ -18,49 +25,48 @@
   --verde-claro-card: #E3EFE5;     /* Fundo do card 'Sou Produtor' */
   --verde-folha: #2D5A3A;          /* Títulos de destaque e ícones */
   --verde-escuro-footer: #111E15;  /* Fundo da seção final e rodapé */
-  --fundo-pagina: #FAF7F2;         /* Fundo geral do site e cards de frutas */
+  --fundo-pagina: #FAF7F2;         /* Fundo geral do site */
   --texto-principal: #111111;      /* Títulos e textos escuros */
 
-  /* ===== Botões: padding (vertical horizontal) ===== */
-  --btn-catalogo-padding: 28px 15px;   /* "Ver catálogo e solicitar orçamento" e "Quero ser parceiro" */
-  --btn-cotacao-padding: 18px 22px;    /* 7x "Solicitar Cotação" */
-  --btn-faq-padding: 32px 26px;        /* "Calendário de safra" e "Solicitar visita técnica" */
-  --btn-enviar-padding-y: 29px;        /* "Enviar solicitação" (largura 100%, só o vertical foi medido) */
-  --btn-enviar-padding: var(--btn-enviar-padding-y) 0;
-  --btn-filtro-padding: 8px 27px;      /* "Toda", "Mercado interno", "Exportação" */
+  /* ===== Botões: fonte ===== */
+  --btn-catalogo-fonte: clamp(1.125rem, 1.78vw, 2rem);
+  --btn-cotacao-fonte: clamp(1rem, 1.56vw, 1.75rem);
+  --btn-faq-fonte: clamp(1.125rem, 1.83vw, 2.0625rem);
+  --btn-enviar-fonte: clamp(1.5rem, 3.11vw, 3.5rem);
+  --btn-filtro-fonte: clamp(1rem, 1.67vw, 1.875rem);
 
-  /* ===== Botões: tamanho da fonte ===== */
-  --btn-catalogo-fonte: 32px;
-  --btn-cotacao-fonte: 28px;
-  --btn-faq-fonte: 33px;
-  --btn-enviar-fonte: 56px;
-  --btn-filtro-fonte: 30px;
+  /* ===== Botões: padding (vertical horizontal) em em, acompanha a fonte do botão ===== */
+  --btn-catalogo-padding: 0.875em 0.47em;  /* "Ver catálogo..." e "Quero ser parceiro" */
+  --btn-cotacao-padding: 0.64em 0.79em;    /* "Solicitar Cotação" */
+  --btn-faq-padding: 0.97em 0.79em;        /* "Calendário de safra" e "Solicitar visita técnica" */
+  --btn-enviar-padding: 0.52em 0;          /* "Enviar solicitação" (largura 100%) */
+  --btn-filtro-padding: 0.27em 0.9em;      /* "Toda", "Mercado interno", "Exportação" */
 
   /* ===== Campos de texto (Nome, Empresa, E-mail / WhatsApp) ===== */
-  --campo-altura: 72px;
-  --campo-raio: 24px;
+  --campo-altura: clamp(3rem, 4vw, 4.5rem);
+  --campo-raio: clamp(1rem, 1.33vw, 1.5rem);
   --campo-bg: #739E82;
-  --campo-padding: 0 22px;
-  --campo-fonte: 28px;                 /* sugestão: o vídeo não mostra texto no campo */
-  --campo-texto-cor: #ECF6EE;          /* texto digitado (sugestão) */
-  --campo-placeholder-cor: #C9E2D0;    /* placeholder (sugestão) */
+  --campo-padding: 0 clamp(1rem, 1.22vw, 1.375rem);
+  --campo-fonte: clamp(1rem, 1.56vw, 1.75rem);       /* sugestão: o vídeo não mostra texto no campo */
+  --campo-texto-cor: #ECF6EE;                        /* texto digitado (sugestão) */
+  --campo-placeholder-cor: #C9E2D0;                  /* placeholder (sugestão) */
 
   /* Campo curto (Interesse) */
   --campo-curto-largura: 59%;
-  --campo-curto-altura: 62px;
+  --campo-curto-altura: clamp(2.75rem, 3.44vw, 3.875rem);
 
   /* Label ("Nome", "Empresa", ...) */
-  --campo-label-fonte: 36px;
+  --campo-label-fonte: clamp(1.125rem, 2vw, 2.25rem);
   --campo-label-cor: #ECF6EE;
-  --campo-label-gap: 9px;
+  --campo-label-gap: clamp(0.375rem, 0.5vw, 0.5625rem);
 
   /* Espaço entre um grupo (label + campo) e o próximo */
-  --campo-grupo-gap: 9px;
+  --campo-grupo-gap: clamp(0.375rem, 0.5vw, 0.5625rem);
 
   /* ===== Card do formulário ===== */
   --form-card-bg: #2C4334;
-  --form-card-raio: 70px;
-  --form-card-padding: 60px 60px 39px;  /* topo, laterais, base */
+  --form-card-raio: clamp(2rem, 3.89vw, 4.375rem);
+  --form-card-padding: clamp(1.25rem, 3.33vw, 3.75rem) clamp(1.25rem, 3.33vw, 3.75rem) clamp(1rem, 2.17vw, 2.4375rem);
 
   /* ===== Cards: cores e letter-spacing (iguais nos 3 tipos) ===== */
   --card-titulo-cor: #0F2617;
@@ -68,79 +74,78 @@
   --card-titulo-tracking: -0.1em;
   --card-desc-tracking: -0.05em;
 
-  /* ===== Card "Sou Comprador" / "Sou Produtor" (665 x ~940) ===== */
-  --card-perfil-largura: 665px;
-  --card-perfil-gap: 62px;              /* espaço entre os dois cards */
-  --card-perfil-raio: 60px;
-  --card-perfil-padding-x: 70px;        /* borda -> texto da descrição */
-  --card-perfil-icone: 115px;           /* círculo centralizado na borda de cima (metade para fora) */
-  --card-perfil-titulo-top: 126px;      /* topo do card -> topo das letras do título */
-  --card-perfil-titulo-fonte: 64px;
-  --card-perfil-titulo-desc: 31px;
-  --card-perfil-desc-fonte: 34px;
-  --card-perfil-desc-linha: 30px;
-  --card-perfil-bloco-raio: 60px;
+  /* ===== Card "Sou Comprador" / "Sou Produtor" ===== */
+  --card-perfil-largura: 41.5625rem;                          /* 665px, o card usa min(100%, largura) */
+  --card-perfil-gap: clamp(1rem, 3.44vw, 3.875rem);           /* espaço entre os dois cards */
+  --card-perfil-raio: clamp(2rem, 3.33vw, 3.75rem);
+  --card-perfil-padding-x: clamp(1.25rem, 3.89vw, 4.375rem);  /* borda -> texto */
+  --card-perfil-icone: clamp(4rem, 6.39vw, 7.1875rem);        /* círculo na borda de cima (metade para fora) */
+  --card-perfil-titulo-top: clamp(5rem, 7vw, 7.875rem);       /* topo do card -> título */
+  --card-perfil-titulo-fonte: clamp(2rem, 3.56vw, 4rem);
+  --card-perfil-titulo-desc: clamp(1rem, 1.72vw, 1.9375rem);
+  --card-perfil-desc-fonte: clamp(1.0625rem, 1.89vw, 2.125rem);
+  --card-perfil-desc-linha: 0.88;                             /* sem unidade: proporção da fonte */
+  --card-perfil-bloco-raio: clamp(2rem, 3.33vw, 3.75rem);
   --card-perfil-bloco-comprador: #F8EDDE;
   --card-perfil-bloco-produtor: #E4EEE6;
-  --card-perfil-bloco-padding: 48px 56px 94px;  /* topo, laterais, base */
+  --card-perfil-bloco-padding: clamp(1.25rem, 2.67vw, 3rem) clamp(1.25rem, 3.11vw, 3.5rem) clamp(2rem, 5.22vw, 5.875rem);
   --card-perfil-lista-cor: #0F2617;
-  --card-perfil-lista-fonte: 34px;
-  --card-perfil-lista-gap: 49px;        /* distância entre as linhas dos itens */
+  --card-perfil-lista-fonte: clamp(1.0625rem, 1.89vw, 2.125rem);
+  --card-perfil-lista-gap: clamp(1.75rem, 2.72vw, 3.0625rem); /* altura mínima de cada item da lista */
 
-  /* ===== Card de fruta (430 x 846) ===== */
-  --card-fruta-largura: 430px;
-  --card-fruta-raio: 36px;
-  --card-fruta-padding-x: 29px;         /* topo e laterais */
-  --card-fruta-padding-base: 42px;
-  --card-fruta-gap-cards: 19px;
-  --card-fruta-img-raio: 16px;
-  --card-fruta-img-titulo: 21px;        /* imagem -> título */
-  --card-fruta-titulo-fonte: 38px;
-  --card-fruta-titulo-desc: 37px;       /* título -> descrição */
-  --card-fruta-desc-fonte: 34px;
-  --card-fruta-desc-linha: 30px;
-  --card-fruta-desc-tags: 27px;         /* descrição -> tags */
-  --card-fruta-tags-botao: 40px;        /* tags -> botão */
+  /* ===== Card de fruta ===== */
+  --card-fruta-largura: 26.875rem;                            /* 430px */
+  --card-fruta-raio: clamp(1.5rem, 2vw, 2.25rem);
+  --card-fruta-padding-x: clamp(1rem, 1.61vw, 1.8125rem);     /* topo e laterais */
+  --card-fruta-padding-base: clamp(1.25rem, 2.33vw, 2.625rem);
+  --card-fruta-gap-cards: clamp(0.75rem, 1.06vw, 1.1875rem);
+  --card-fruta-img-raio: clamp(0.75rem, 0.89vw, 1rem);
+  --card-fruta-img-titulo: clamp(0.75rem, 1.17vw, 1.3125rem); /* imagem -> título */
+  --card-fruta-titulo-fonte: clamp(1.5rem, 2.11vw, 2.375rem);
+  --card-fruta-titulo-desc: clamp(1rem, 2.06vw, 2.3125rem);   /* título -> descrição */
+  --card-fruta-desc-fonte: clamp(1.0625rem, 1.89vw, 2.125rem);
+  --card-fruta-desc-linha: 0.88;
+  --card-fruta-desc-tags: clamp(1rem, 1.5vw, 1.6875rem);      /* descrição -> tags */
+  --card-fruta-tags-botao: clamp(1.25rem, 2.22vw, 2.5rem);    /* tags -> botão */
 
   /* Tags ("Caixa 4kg", "Jun - Mar") */
-  --tag-padding: 6px 16px;
-  --tag-gap: 9px;
+  --tag-padding: 0.29em 0.76em;
+  --tag-gap: clamp(0.375rem, 0.5vw, 0.5625rem);
   --tag-bg: #CFE3D1;
   --tag-cor: #364A3A;
-  --tag-fonte: 21px;
+  --tag-fonte: clamp(0.875rem, 1.17vw, 1.3125rem);
 
-  /* ===== Cards de qualidade (Seleção, Classificação...) (516 x 353) ===== */
-  --card-qualidade-largura: 516px;
-  --card-qualidade-altura: 353px;       /* altura mínima, todos iguais */
-  --card-qualidade-raio: 85px;
-  --card-qualidade-padding-x: 45px;
-  --card-qualidade-icone: 75px;         /* centralizado na borda de cima (metade para fora) */
-  --card-qualidade-titulo-top: 75px;    /* topo do card -> topo das letras do título */
-  --card-qualidade-titulo-fonte: 45px;
-  --card-qualidade-titulo-desc: 41px;
-  --card-qualidade-desc-fonte: 36px;
-  --card-qualidade-desc-linha: 32px;
-  --card-qualidade-gap-x: 17px;
-  --card-qualidade-gap-y: 88px;         /* inclui a metade do ícone que sai para fora */
+  /* ===== Cards de qualidade (Seleção, Classificação...) ===== */
+  --card-qualidade-largura: 32.25rem;                         /* 516px */
+  --card-qualidade-altura: clamp(15rem, 19.6vw, 22.0625rem);  /* altura mínima, todos iguais */
+  --card-qualidade-raio: clamp(2.5rem, 4.72vw, 5.3125rem);
+  --card-qualidade-padding-x: clamp(1.25rem, 2.5vw, 2.8125rem);
+  --card-qualidade-icone: clamp(3rem, 4.17vw, 4.6875rem);     /* na borda de cima (metade para fora) */
+  --card-qualidade-titulo-top: clamp(3.5rem, 4.17vw, 4.6875rem);
+  --card-qualidade-titulo-fonte: clamp(1.5rem, 2.5vw, 2.8125rem);
+  --card-qualidade-titulo-desc: clamp(0.875rem, 2.28vw, 2.5625rem);
+  --card-qualidade-desc-fonte: clamp(1.0625rem, 2vw, 2.25rem);
+  --card-qualidade-desc-linha: 0.89;
+  --card-qualidade-gap-x: clamp(0.75rem, 0.94vw, 1.0625rem);
+  --card-qualidade-gap-y: clamp(3rem, 4.89vw, 5.5rem);        /* inclui a metade do ícone que sai para fora */
 
-  /* ===== Card do FAQ (839 x ~813) ===== */
-  --card-faq-largura: 839px;
-  --card-faq-raio: 68px;
+  /* ===== Card do FAQ ===== */
+  --card-faq-largura: 52.4375rem;                             /* 839px */
+  --card-faq-raio: clamp(2rem, 3.78vw, 4.25rem);
   --card-faq-bg: #538960;
-  --card-faq-padding: 104px 22px 114px 50px;   /* topo, direita, base, esquerda */
-  --card-faq-item-altura: 132px;               /* item fechado */
-  --card-faq-item-aberto: 198px;               /* item aberto, com 3 linhas */
-  --card-faq-titulo-fonte: 38px;
-  --card-faq-icone: 32px;
-  --card-faq-corpo-linha: 31px;
+  --card-faq-padding: clamp(2rem, 5.78vw, 6.5rem) clamp(0.75rem, 1.22vw, 1.375rem) clamp(2rem, 6.33vw, 7.125rem) clamp(1rem, 2.78vw, 3.125rem); /* topo, direita, base, esquerda */
+  --card-faq-item-altura: clamp(4.5rem, 7.33vw, 8.25rem);     /* item fechado */
+  --card-faq-item-aberto: clamp(7rem, 11vw, 12.375rem);       /* item aberto, com 3 linhas */
+  --card-faq-titulo-fonte: clamp(1.25rem, 2.11vw, 2.375rem);
+  --card-faq-icone: clamp(1.25rem, 1.78vw, 2rem);
+  --card-faq-corpo-linha: clamp(1.125rem, 1.72vw, 1.9375rem);
 }
 
+/* Página clara, sem modo escuro */
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  background-color: var(--fundo-pagina);
+  color: var(--texto-principal);
+  color-scheme: light;
   font-family: var(--fonte-principal);
 }
