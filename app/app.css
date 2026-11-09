@@ -1,14 +1,5 @@
 @import "tailwindcss";
 
-/*
-  Único conjunto de tokens: tudo fica no :root.
-  O @theme só liga a fonte do Tailwind (classe font-sans) à fonte do projeto.
-
-  Tamanhos responsivos: clamp(mínimo, preferido em vw, máximo)
-  - o máximo é a medida do protótipo (em rem, 1rem = 16px)
-  - o preferido é o máximo / 18 em vw, ou seja, chega ao máximo em ~1800px de tela
-  - o mínimo é o que ainda fica legível em tela de celular (~360px)
-*/
 @theme inline {
   --font-sans: var(--fonte-principal);
 }
