@@ -19,10 +19,30 @@ const qualidade = [
   { titulo: "Logística", icone: logistica, descricao: "Infraestrutura conectando regiões produtoras a diferentes mercados." },
 ]
 
+const SITE_URL = ""; /* Ainda não criado */
+
 export function meta({}: Route.MetaArgs) {
+  const titulo = "Eurofrut | Frutas para mercado interno e exportação";
+  const descricao =
+    "Eurofrut: manga, uva, maracujá e mais, com seleção, classificação e rastreabilidade para o mercado interno e exportação. Solicite sua cotação.";
+
   return [
-    { title: "EUROFRUT" },
-    { name: "description", content: "Eurofrut: manga, uva, maracujá e mais, com seleção, classificação e rastreabilidade para o mercado interno e exportação. Solicite sua cotação." },
+    { title: titulo },
+    { name: "description", content: descricao },
+
+    // Imagem de compartilhamento (WhatsApp, Facebook, LinkedIn)
+    { property: "og:type", content: "website" },
+    { property: "og:locale", content: "pt_BR" },
+    { property: "og:site_name", content: "Eurofrut" },
+    { property: "og:title", content: titulo },
+    { property: "og:description", content: descricao },
+    { property: "og:url", content: SITE_URL },
+    { property: "og:image", content: `${SITE_URL}/og-image.png` },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+
+    // Twitter / X
+    { name: "twitter:card", content: "summary_large_image" },
   ];
 }
 
