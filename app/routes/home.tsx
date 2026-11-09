@@ -22,51 +22,15 @@ const qualidade = [
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "EUROFRUT" },
-    { name: "description", content: "Welcome to React Router!" },
+    { name: "description", content: "Eurofrut: manga, uva, maracujá e mais, com seleção, classificação e rastreabilidade para o mercado interno e exportação. Solicite sua cotação." },
   ];
 }
 
 export default function Home() {
   return (
-    <div className="max-w-md">
+    <div>
       {/*Header*/}
       {/*Body*/}
-      <Botao text="Ver catálogo e solicitar orçamento" tamanho="catalogo" corFundo="--laranja-botao"/>
-      <CampoText type="string" label="Nome" placeholder="" value="" curto={true}/>
-      {/* <Card
-          variante="perfil"
-          titulo="Sou Comprador"
-          descricao="Distribuidor, rede de varejo, importador ou CEASA buscando volume, calibre e conformidade técnica."
-          corBloco="--card-perfil-bloco-comprador"
-          bloco={
-            <ul className="list-disc pl-10 m-0">
-              <li>Especificações técnicas por fruta</li>
-              <li>Certificações GlobalG.A.P, HACCP, BRC</li>
-              <li>Mercado interno e exportação</li>
-            </ul>
-          }
-        >
-          <Botao text="Ver catálogo e solicitar orçamento" tamanho="catalogo" corFundo="--laranja-botao" type="button"/>
-        </Card> */}
-        {/* <Card
-          variante="fruta"
-          titulo="Manga"
-          descricao="Selecionada nas melhores regiões produtoras do Brasil, com padrão de qualidade para exportação."
-          imagem={{ img: maracuja, alt: "Manga" }}
-          tags={["Caixa 4kg", "Jun - Mar"]} 
->
-  <Botao text="Solicitar Cotação" tamanho="cotacao" corFundo="--laranja-botao"/>
-</Card> */}
-
-      {qualidade.map((q) => (
-    <Card
-      key={q.titulo}
-      variante="qualidade"
-      titulo={q.titulo}
-      descricao={q.descricao}
-      icone={<img src={q.icone} alt="" style={{ width: "55%" }} />}
-    />
-  ))}
       {/*Footer*/}
     </div>
   );
