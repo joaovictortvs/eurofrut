@@ -3,25 +3,55 @@ import type { ChangeEvent } from "react";
 interface CampoTextProps {
     label: string;
     value: string;
+    onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     placeholder?: string;
-    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     type?: string;
     name?: string;
     required?: boolean;
     curto?: boolean;
+    multilinha?: boolean;
+    linhas?: number;
+    erro?: string;
 }
 
 export function CampoText({
     label,
     value,
-    placeholder,
     onChange,
+    placeholder,
     type = "text",
     name,
     required,
     curto = false,
+    multilinha = false,
+    linhas = 5,
+    erro,
 }: CampoTextProps) {
     const id = name ?? label.toLowerCase().replace(/\s+/g, "-");
+    const idErro = `${id}-erro`;
+
+    const propsComuns = {
+        id,
+        name,
+        value,
+        onChange,
+        placeholder,
+        required,
+        "aria-invalid": erro ? true : undefined,
+        "aria-describedby": erro ? idErro : undefined,
+        className:
+            "outline-none focus:ring-2 focus:ring-[color:var(--laranja-botao)] placeholder:text-[color:var(--campo-placeholder-cor)]",
+    };
+
+    const estiloBase = {
+        backgroundColor: "var(--campo-bg)",
+        color: "var(--campo-texto-cor)",
+        fontSize: "var(--campo-fonte)",
+        borderRadius: "var(--campo-raio)",
+        outline: erro ? "3px solid var(--campo-erro-cor)" : undefined,
+        width: curto ? "var(--campo-curto-largura, 59%)" : "100%",
+        maxWidth: "100%",
+    };
 
     return (
         <div
@@ -31,29 +61,43 @@ export function CampoText({
             <label
                 htmlFor={id}
                 className="font-semibold"
-                style={{ width: curto ? "var(--campo-curto-largura, 59%)" : "100%",
-                maxWidth: "100%", fontSize: "var(--campo-label-fonte)" }}
+                style={{ color: "var(--campo-label-cor)", fontSize: "var(--campo-label-fonte)" }}
             >
                 {label}
             </label>
-            <input
-                id={id}
-                name={name}
-                type={type}
-                placeholder={placeholder}
-                value={value}
-                onChange={onChange}
-                required={required}
-                className="outline-none focus:ring-2 focus:ring-emerald-800"
-                style={{
-                    backgroundColor: "var(--campo-bg)",
-                    borderRadius: "var(--campo-raio)",
-                    padding: "var(--campo-padding)",
-                    height: curto ? "var(--campo-curto-altura)" : "var(--campo-altura)",
-                    width: curto ? "var(--campo-curto-largura, 59%)" : "100%",
-                    maxWidth: "100%",
-                }}
-            />
+
+            {multilinha ? (
+                <textarea
+                    {...propsComuns}
+                    rows={linhas}
+                    style={{
+                        ...estiloBase,
+                        padding: "var(--campo-multilinha-padding)",
+                        minHeight: "var(--campo-multilinha-altura)",
+                        resize: "vertical",
+                    }}
+                />
+            ) : (
+                <input
+                    {...propsComuns}
+                    type={type}
+                    style={{
+                        ...estiloBase,
+                        padding: "var(--campo-padding)",
+                        height: curto ? "var(--campo-curto-altura)" : "var(--campo-altura)",
+                    }}
+                />
+            )}
+
+            {erro && (
+                <p
+                    id={idErro}
+                    role="alert"
+                    style={{ color: "var(--campo-erro-cor)", fontSize: "var(--campo-erro-fonte)" }}
+                >
+                    {erro}
+                </p>
+            )}
         </div>
     );
 }

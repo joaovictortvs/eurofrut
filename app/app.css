@@ -39,8 +39,16 @@
   --campo-bg: #739E82;
   --campo-padding: 0 clamp(1rem, 1.22vw, 1.375rem);
   --campo-fonte: clamp(1rem, 1.56vw, 1.75rem);       /* sugestão: o vídeo não mostra texto no campo */
-  --campo-texto-cor: #ECF6EE;                        /* texto digitado (sugestão) */
-  --campo-placeholder-cor: #C9E2D0;                  /* placeholder (sugestão) */
+  --campo-texto-cor: #0A1A10;                        /* texto digitado: contraste 5,9 sobre o campo */
+  --campo-placeholder-cor: #153220;                  /* placeholder: contraste 4,6 sobre o campo */
+
+  /* Estado de erro (borda por fora do campo + mensagem) */
+  --campo-erro-cor: #FFB4AB;                         /* contraste 6,3 sobre o card escuro */
+  --campo-erro-fonte: clamp(0.875rem, 1.17vw, 1.3125rem);
+
+  /* Versão multilinha (textarea "Mensagem") */
+  --campo-multilinha-altura: clamp(7rem, 11vw, 12.5rem);
+  --campo-multilinha-padding: clamp(0.75rem, 1.1vw, 1.25rem) clamp(1rem, 1.22vw, 1.375rem);
 
   /* Campo curto (Interesse) */
   --campo-curto-largura: 59%;

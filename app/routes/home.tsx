@@ -52,6 +52,7 @@ export default function Home() {
       {/*Header*/}
       {/*Body*/}
       {/*Footer*/}
+      
     </div>
   );
 }
