@@ -19,7 +19,7 @@ const qualidade = [
   { titulo: "Logística", icone: logistica, descricao: "Infraestrutura conectando regiões produtoras a diferentes mercados." },
 ]
 
-const SITE_URL = ""; /* Ainda não criado */
+const SITE_URL = "https://eurofrut.vercel.app"; /* Ainda não criado */
 
 export function meta({}: Route.MetaArgs) {
   const titulo = "Eurofrut | Frutas para mercado interno e exportação";
