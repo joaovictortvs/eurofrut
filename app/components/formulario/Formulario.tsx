@@ -13,18 +13,17 @@ export function Formulario() {
 
     function atualizar(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         setDados({ ...dados, [e.target.name]: e.target.value });
+        setSucesso(false);
     }
 
-    // 1. Memória dos erros: vazio = sem erro
     const [erros, setErros] = useState({
         nome: "",
         contato: "",
         interesse: "",
     });
 
-    // 2. Confere os campos quando a pessoa clica em "Enviar solicitação"
     function enviar(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault(); // impede a página de recarregar
+        e.preventDefault();
 
         const pareceEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dados.contato.trim());
         const pareceTelefone = dados.contato.replace(/\D/g, "").length >= 10;
@@ -43,11 +42,20 @@ export function Formulario() {
         setErros(novosErros);
 
         const temErro = Object.values(novosErros).some((msg) => msg !== "");
-        if (temErro) return; // para aqui e não envia
+        if (temErro) return;
 
-        // Etapa 4: aqui entra o envio pro Formspree
-        console.log("Tudo certo, enviando:", dados);
+        try {
+            const salvos = JSON.parse(localStorage.getItem("solicitacoes") ?? "[]");
+            salvos.push({ ...dados, data: new Date().toLocaleString("pt-BR") });
+            localStorage.setItem("solicitacoes", JSON.stringify(salvos));
+        } catch {
+        }
+
+        setSucesso(true);
+        setDados({ nome: "", empresa: "", contato: "", interesse: "" });
     }
+
+    const [sucesso, setSucesso] = useState(false);
 
     return (
         <section
@@ -57,7 +65,6 @@ export function Formulario() {
         >
             <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between gap-10">
 
-                {/* Lado esquerdo: título, texto e contatos */}
                 <div className="md:w-1/2">
                     <h2 className="text-4xl md:text-5xl font-bold">Fale com nossa equipe.</h2>
                     <p className="mt-4 max-w-sm">
@@ -77,7 +84,6 @@ export function Formulario() {
 
                 </div>
 
-                {/* Lado direito: o card com os campos */}
                 <form
                     onSubmit={enviar}
                     noValidate
@@ -92,6 +98,12 @@ export function Formulario() {
                     <CampoText label="Empresa" name="empresa" value={dados.empresa} onChange={atualizar} />
                     <CampoText label="E-mail / WhatsApp" name="contato" value={dados.contato} onChange={atualizar} erro={erros.contato} />
                     <CampoText label="Interesse" name="interesse" value={dados.interesse} onChange={atualizar} erro={erros.interesse} curto />
+
+                    {sucesso && (
+                        <p role="status" className="mt-4 font-semibold" style={{ color: "var(--campo-label-cor)" }}>
+                            ✓ Recebemos sua solicitação! Nossa equipe entra em contato em breve.
+                        </p>
+                    )}
 
                     <div className="mt-6">
                         <Botao text="Enviar solicitação" tamanho="enviar" type="submit" />
