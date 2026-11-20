@@ -6,6 +6,9 @@ import { Card } from "~/components/componentsReutilizaveis/Card";
 import VoltarAoTopo from "../components/VoltarAoTopo";
 import { Formulario } from "../components/formulario/Formulario";
 import { BotaoWhatsApp } from "../components/BotaoWhatsApp";
+import { Rodape } from "../components/rodape/Rodape";
+import { SecaoFrutas } from "../components/frutas/SecaoFrutas";
+
 import maracuja from "../img/maracuja.jpg";
 import logistica from "../img/icones/logistica.svg";
 
@@ -53,6 +56,8 @@ export default function Home() {
     <main className="w-full min-h-screen bg-white">
       <Header />
 
+      <SecaoFrutas />
+
       <div className="max-w-md">
         {/*Header*/}
         {/*Body*/}
@@ -61,6 +66,7 @@ export default function Home() {
 
       <Formulario />
       <BotaoWhatsApp />
+      <Rodape />
       <VoltarAoTopo />
     </main>
   );
