@@ -4,6 +4,7 @@ import { Botao } from "../components/componentsReutilizaveis/Botao";
 import { CampoText } from "../components/componentsReutilizaveis/CampoText";
 import { Card } from "~/components/componentsReutilizaveis/Card";
 import VoltarAoTopo from "../components/VoltarAoTopo";
+import { SecaoFrutas } from "../components/frutas/SecaoFrutas";
 
 import maracuja from "../img/maracuja.jpg";
 import logistica from "../img/icones/logistica.svg";
@@ -51,6 +52,8 @@ export default function Home() {
   return (
     <main className="w-full min-h-screen bg-white">
       <Header />
+
+      <SecaoFrutas />
 
       <div className="max-w-md">
         {/*Header*/}
