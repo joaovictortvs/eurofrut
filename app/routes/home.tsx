@@ -4,6 +4,8 @@ import { Botao } from "../components/componentsReutilizaveis/Botao";
 import { CampoText } from "../components/componentsReutilizaveis/CampoText";
 import { Card } from "~/components/componentsReutilizaveis/Card";
 import VoltarAoTopo from "../components/VoltarAoTopo";
+import { Formulario } from "../components/formulario/Formulario";
+import { BotaoWhatsApp } from "../components/BotaoWhatsApp";
 import { Rodape } from "../components/rodape/Rodape";
 import { SecaoFrutas } from "../components/frutas/SecaoFrutas";
 
@@ -62,6 +64,8 @@ export default function Home() {
         {/*Footer*/}
       </div>
 
+      <Formulario />
+      <BotaoWhatsApp />
       <Rodape />
       <VoltarAoTopo />
     </main>
