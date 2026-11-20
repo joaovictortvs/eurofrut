@@ -1,7 +1,19 @@
+
 import { Botao } from "../componentsReutilizaveis/Botao";
 import { CampoText } from "../componentsReutilizaveis/CampoText";
+import { useState } from "react";
 
 export function Formulario() {
+  const [dados, setDados] = useState({
+        nome: "",
+        empresa: "",
+        contato: "",
+        interesse: "",
+    });
+
+    function atualizar(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+        setDados({ ...dados, [e.target.name]: e.target.value });
+    }
     return (
         <section
             id="cotacao"
@@ -15,8 +27,8 @@ export function Formulario() {
                     <h2 className="text-4xl md:text-5xl font-bold">Fale com nossa equipe.</h2>
                     <p className="mt-4 max-w-sm">
                         Só o essencial para começar, o restante a gente alinha na conversa.
-                           </p>
-                     <div className="mt-8 flex flex-col gap-4">
+                    </p>
+                    <div className="mt-8 flex flex-col gap-4">
                         <a href="mailto:contato@eurofrut.com.br" className="flex items-center gap-3 hover:opacity-80">
                             <span className="flex h-10 w-10 items-center justify-center rounded-full" style={{ backgroundColor: "var(--laranja-botao)" }}>✉</span>
                             contato@eurofrut.com.br
@@ -26,8 +38,8 @@ export function Formulario() {
                             +55 (00) 00000-0000
                         </a>
                     </div>
-                      
-                 
+
+
                 </div>
 
                 {/* Lado direito: o card com os campos */}
@@ -39,10 +51,10 @@ export function Formulario() {
                         padding: "var(--form-card-padding)",
                     }}
                 >
-                    <CampoText label="Nome" name="nome" value="" />
-                    <CampoText label="Empresa" name="empresa" value="" />
-                    <CampoText label="E-mail / WhatsApp" name="contato" value="" />
-                    <CampoText label="Interesse" name="interesse" value="" curto />
+                    <CampoText label="Nome" name="nome" value={dados.nome} onChange={atualizar} />
+                    <CampoText label="Empresa" name="empresa" value={dados.empresa} onChange={atualizar} />
+                    <CampoText label="E-mail / WhatsApp" name="contato" value={dados.contato} onChange={atualizar} />
+                    <CampoText label="Interesse" name="interesse" value={dados.interesse} onChange={atualizar} curto />
 
                     <div className="mt-6">
                         <Botao text="Enviar solicitação" tamanho="enviar" type="submit" />
