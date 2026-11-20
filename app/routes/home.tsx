@@ -4,6 +4,7 @@ import { Botao } from "../components/componentsReutilizaveis/Botao";
 import { CampoText } from "../components/componentsReutilizaveis/CampoText";
 import { Card } from "~/components/componentsReutilizaveis/Card";
 import VoltarAoTopo from "../components/VoltarAoTopo";
+import { Rodape } from "../components/rodape/Rodape";
 import { SecaoFrutas } from "../components/frutas/SecaoFrutas";
 
 import maracuja from "../img/maracuja.jpg";
@@ -61,6 +62,7 @@ export default function Home() {
         {/*Footer*/}
       </div>
 
+      <Rodape />
       <VoltarAoTopo />
     </main>
   );
