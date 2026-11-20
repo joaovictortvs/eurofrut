@@ -5,6 +5,7 @@ import { CampoText } from "../components/componentsReutilizaveis/CampoText";
 import { Card } from "~/components/componentsReutilizaveis/Card";
 import VoltarAoTopo from "../components/VoltarAoTopo";
 import { Formulario } from "../components/formulario/Formulario";
+import { BotaoWhatsApp } from "../components/BotaoWhatsApp";
 import maracuja from "../img/maracuja.jpg";
 import logistica from "../img/icones/logistica.svg";
 
@@ -59,6 +60,7 @@ export default function Home() {
       </div>
 
       <Formulario />
+      <BotaoWhatsApp />
       <VoltarAoTopo />
     </main>
   );
