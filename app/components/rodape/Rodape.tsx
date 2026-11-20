@@ -4,7 +4,7 @@ export function Rodape() {
     return (
         <footer
             id="rodape"
-            className="relative isolate overflow-hidden text-white px-6 py-12"
+            className="relative isolate overflow-hidden text-white px-6 md:px-12 lg:px-16 py-12"
             style={{ backgroundColor: "var(--verde-escuro-footer)" }}
         >
             <img
@@ -13,10 +13,10 @@ export function Rodape() {
                 className="absolute inset-0 -z-10 h-full w-full object-cover blur-md scale-110"
             />
             <div
-                className="absolute inset-0 -z-10 opacity-85"
+                className="absolute inset-0 -z-10 opacity-60"
                 style={{ backgroundColor: "var(--verde-escuro-footer)" }}
             />
-            <div className="max-w-[1180px] mx-auto flex flex-col md:flex-row md:justify-between gap-10">
+            <div className="w-full flex flex-col md:flex-row md:justify-between gap-10">
                 {/* Caixa da esquerda: marca e frase */}
                 <div>
 
@@ -42,38 +42,38 @@ export function Rodape() {
                 <div className="flex flex-wrap gap-12">
                     <div>
                         <p className="font-bold">Navegação</p>
-                        <ul className="mt-2">
-                            <li><a href="#inicio">O Grupo</a></li>
-                            <li><a href="#frutas">Produtos</a></li>
-                            <li><a href="#qualidade">Qualidade</a></li>
-                            <li><a href="#perfis">Sou produtor</a></li>
+                        <ul className="mt-2  space-y-1">
+                            <li><a className="hover:text-[color:var(--laranja-botao)] transition-colors" href="#inicio">O Grupo</a></li>
+                            <li><a className="hover:text-[color:var(--laranja-botao)] transition-colors" href="#frutas">Produtos</a></li>
+                            <li><a className="hover:text-[color:var(--laranja-botao)] transition-colors" href="#qualidade">Qualidade</a></li>
+                            <li><a className="hover:text-[color:var(--laranja-botao)] transition-colors" href="#perfis">Sou produtor</a></li>
                         </ul>
                     </div>
 
                     <div>
                         <p className="font-bold">Contato</p>
-                        <ul className="mt-2">
-                            <li><a href="#cotacao">Solicitar orçamento</a></li>
-                            <li><a href="#cotacao">Fale conosco</a></li>
+                        <ul className="mt-2  space-y-1">
+                            <li><a className="hover:text-[color:var(--laranja-botao)] transition-colors" href="#cotacao">Solicitar orçamento</a></li>
+                            <li><a className="hover:text-[color:var(--laranja-botao)] transition-colors" href="#cotacao">Fale conosco</a></li>
                         </ul>
                     </div>
 
                     <div>
                         <p className="font-bold">Redes</p>
-                        <ul className="mt-2">
-                            <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                            <li><a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <ul className="mt-2  space-y-1">
+                            <li><a className="hover:text-[color:var(--laranja-botao)] transition-colors" href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a className="hover:text-[color:var(--laranja-botao)] transition-colors" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                         </ul>
                     </div>
                 </div>
 
             </div>
-            <div className="max-w-[1180px] mx-auto mt-10 pt-6 border-t border-white/20">
+            <div className="w-full mt-10 pt-6 border-t border-white/60">
                 <p className="text-sm text-white/70">
                     O Grupo EuroFrut reúne a EuroFrut (mercado interno) e a Jundal (exportação).
                 </p>
             </div>
-            <div className="max-w-[1180px] mx-auto mt-10 pt-6 border-t border-white/20">
+            <div className="w-full mt-10 pt-6 border-t border-white/60">
                 <p className="text-sm text-white/70">
                     © Grupo EuroFrut  Todos os direitos reservados.
                 </p>
