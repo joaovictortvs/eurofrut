@@ -14,6 +14,41 @@ export function Formulario() {
     function atualizar(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         setDados({ ...dados, [e.target.name]: e.target.value });
     }
+
+    // 1. Memória dos erros: vazio = sem erro
+    const [erros, setErros] = useState({
+        nome: "",
+        contato: "",
+        interesse: "",
+    });
+
+    // 2. Confere os campos quando a pessoa clica em "Enviar solicitação"
+    function enviar(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault(); // impede a página de recarregar
+
+        const pareceEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dados.contato.trim());
+        const pareceTelefone = dados.contato.replace(/\D/g, "").length >= 10;
+
+        const novosErros = {
+            nome: dados.nome.trim() === "" ? "Informe seu nome." : "",
+            contato:
+                dados.contato.trim() === ""
+                    ? "Informe um e-mail ou WhatsApp."
+                    : !pareceEmail && !pareceTelefone
+                        ? "Digite um e-mail válido ou um telefone com DDD."
+                        : "",
+            interesse: dados.interesse.trim() === "" ? "Conte o que você procura." : "",
+        };
+
+        setErros(novosErros);
+
+        const temErro = Object.values(novosErros).some((msg) => msg !== "");
+        if (temErro) return; // para aqui e não envia
+
+        // Etapa 4: aqui entra o envio pro Formspree
+        console.log("Tudo certo, enviando:", dados);
+    }
+
     return (
         <section
             id="cotacao"
@@ -44,6 +79,8 @@ export function Formulario() {
 
                 {/* Lado direito: o card com os campos */}
                 <form
+                    onSubmit={enviar}
+                    noValidate
                     className="md:w-1/2"
                     style={{
                         backgroundColor: "var(--form-card-bg)",
@@ -51,10 +88,10 @@ export function Formulario() {
                         padding: "var(--form-card-padding)",
                     }}
                 >
-                    <CampoText label="Nome" name="nome" value={dados.nome} onChange={atualizar} />
+                    <CampoText label="Nome" name="nome" value={dados.nome} onChange={atualizar} erro={erros.nome} />
                     <CampoText label="Empresa" name="empresa" value={dados.empresa} onChange={atualizar} />
-                    <CampoText label="E-mail / WhatsApp" name="contato" value={dados.contato} onChange={atualizar} />
-                    <CampoText label="Interesse" name="interesse" value={dados.interesse} onChange={atualizar} curto />
+                    <CampoText label="E-mail / WhatsApp" name="contato" value={dados.contato} onChange={atualizar} erro={erros.contato} />
+                    <CampoText label="Interesse" name="interesse" value={dados.interesse} onChange={atualizar} erro={erros.interesse} curto />
 
                     <div className="mt-6">
                         <Botao text="Enviar solicitação" tamanho="enviar" type="submit" />
