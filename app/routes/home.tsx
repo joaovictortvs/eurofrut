@@ -1,11 +1,9 @@
 import type { Route } from "./+types/home";
-import { Header } from "../components/Header";
+import { Header } from "../components/header/Header";
 import { Botao } from "../components/componentsReutilizaveis/Botao";
-import { CampoText } from "../components/componentsReutilizaveis/CampoText"
+import { CampoText } from "../components/componentsReutilizaveis/CampoText";
 import { Card } from "~/components/componentsReutilizaveis/Card";
-import Cabecalho from "../components/cabecalho/Cabecalho";
-import Hero from "../components/hero/Hero";
-import VoltarAoTopo from "../components/voltarAoTopo/VoltarAoTopo";
+import VoltarAoTopo from "../components/VoltarAoTopo";
 
 import maracuja from "../img/maracuja.jpg";
 import logistica from "../img/icones/logistica.svg";
@@ -16,67 +14,51 @@ const frutas = [
     img: maracuja,
     descricao: "Produção em regiões estratégicas, com fruta de polpa concentrada para indústria e mercado in natura.",
   },
-]
+];
 
 const qualidade = [
   { titulo: "Logística", icone: logistica, descricao: "Infraestrutura conectando regiões produtoras a diferentes mercados." },
-]
+];
+
+const SITE_URL = "https://eurofrut.vercel.app"; /* Ainda não criado */
 
 export function meta({}: Route.MetaArgs) {
+  const titulo = "Eurofrut | Frutas para mercado interno e exportação";
+  const descricao =
+    "Eurofrut: manga, uva, maracujá e mais, com seleção, classificação e rastreabilidade para o mercado interno e exportação. Solicite sua cotação.";
+
   return [
-    { title: "EUROFRUT" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: titulo },
+    { name: "description", content: descricao },
+
+    // Imagem de compartilhamento (WhatsApp, Facebook, LinkedIn)
+    { property: "og:type", content: "website" },
+    { property: "og:locale", content: "pt_BR" },
+    { property: "og:site_name", content: "Eurofrut" },
+    { property: "og:title", content: titulo },
+    { property: "og:description", content: descricao },
+    { property: "og:url", content: SITE_URL },
+    { property: "og:image", content: `${SITE_URL}/og-image.png` },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+
+    // Twitter / X
+    { name: "twitter:card", content: "summary_large_image" },
   ];
 }
 
 export default function Home() {
   return (
-   <main className="w-full min-h-screen bg-white">
-    
-      <Cabecalho />
-      <Hero />
-    <div className="max-w-md">
-      {/*Header*/}
-      {/*Body*/}
-      <Botao text="Ver catálogo e solicitar orçamento" tamanho="catalogo" corFundo="--laranja-botao"/>
-      <CampoText type="string" label="Nome" placeholder="" value="" curto={true}/>
-      {/* <Card
-          variante="perfil"
-          titulo="Sou Comprador"
-          descricao="Distribuidor, rede de varejo, importador ou CEASA buscando volume, calibre e conformidade técnica."
-          corBloco="--card-perfil-bloco-comprador"
-          bloco={
-            <ul className="list-disc pl-10 m-0">
-              <li>Especificações técnicas por fruta</li>
-              <li>Certificações GlobalG.A.P, HACCP, BRC</li>
-              <li>Mercado interno e exportação</li>
-            </ul>
-          }
-        >
-          <Botao text="Ver catálogo e solicitar orçamento" tamanho="catalogo" corFundo="--laranja-botao" type="button"/>
-        </Card> */}
-        {/* <Card
-          variante="fruta"
-          titulo="Manga"
-          descricao="Selecionada nas melhores regiões produtoras do Brasil, com padrão de qualidade para exportação."
-          imagem={{ img: maracuja, alt: "Manga" }}
-          tags={["Caixa 4kg", "Jun - Mar"]} 
->
-  <Botao text="Solicitar Cotação" tamanho="cotacao" corFundo="--laranja-botao"/>
-</Card> */}
+    <main className="w-full min-h-screen bg-white">
+      <Header />
 
-      {qualidade.map((q) => (
-    <Card
-      key={q.titulo}
-      variante="qualidade"
-      titulo={q.titulo}
-      descricao={q.descricao}
-      icone={<img src={q.icone} alt="" style={{ width: "55%" }} />}
-    />
-  ))}
-      {/*Footer*/}
-    </div>
-    <VoltarAoTopo />
+      <div className="max-w-md">
+        {/*Header*/}
+        {/*Body*/}
+        {/*Footer*/}
+      </div>
+
+      <VoltarAoTopo />
     </main>
   );
 }
