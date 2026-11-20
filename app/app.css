@@ -148,3 +148,4 @@ body {
   color-scheme: light;
   font-family: var(--fonte-principal);
 }
+html { scroll-behavior: smooth; }
