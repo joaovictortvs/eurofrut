@@ -44,6 +44,16 @@ export function Rodape() {
         </div>
 
       </div>
+       <div className="max-w-[1180px] mx-auto mt-10 pt-6 border-t border-white/20">
+        <p className="text-sm text-white/70">
+          O Grupo EuroFrut reúne a EuroFrut (mercado interno) e a Jundal (exportação).
+        </p>
+      </div>
+       <div className="max-w-[1180px] mx-auto mt-10 pt-6 border-t border-white/20">
+        <p className="text-sm text-white/70">
+          © Grupo EuroFrut  Todos os direitos reservados.
+        </p>
+      </div>
     </footer>
   );
 }
