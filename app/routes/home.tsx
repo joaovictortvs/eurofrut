@@ -1,30 +1,13 @@
 import type { Route } from "./+types/home";
 import { Header } from "../components/header/Header";
-import { Botao } from "../components/componentsReutilizaveis/Botao";
-import { CampoText } from "../components/componentsReutilizaveis/CampoText";
-import { Card } from "~/components/componentsReutilizaveis/Card";
 import VoltarAoTopo from "../components/VoltarAoTopo";
 import { Formulario } from "../components/formulario/Formulario";
 import { BotaoWhatsApp } from "../components/BotaoWhatsApp";
 import { Rodape } from "../components/rodape/Rodape";
 import { SecaoFrutas } from "../components/frutas/SecaoFrutas";
 
-import maracuja from "../img/maracuja.jpg";
-import logistica from "../img/icones/logistica.svg";
 
-const frutas = [
-  {
-    nome: "Maracujá",
-    img: maracuja,
-    descricao: "Produção em regiões estratégicas, com fruta de polpa concentrada para indústria e mercado in natura.",
-  },
-];
-
-const qualidade = [
-  { titulo: "Logística", icone: logistica, descricao: "Infraestrutura conectando regiões produtoras a diferentes mercados." },
-];
-
-const SITE_URL = "https://eurofrut.vercel.app"; /* Ainda não criado */
+const SITE_URL = "https://eurofrut.vercel.app";
 
 export function meta({}: Route.MetaArgs) {
   const titulo = "Eurofrut | Frutas para mercado interno e exportação";
@@ -57,12 +40,6 @@ export default function Home() {
       <Header />
 
       <SecaoFrutas />
-
-      <div className="max-w-md">
-        {/*Header*/}
-        {/*Body*/}
-        {/*Footer*/}
-      </div>
 
       <Formulario />
       <BotaoWhatsApp />

@@ -1,5 +1,5 @@
 import type { FiltroFruta } from "~/types/fruta";
-import { opcoesFiltro } from "./filtrosFrutas";
+import { opcoesFiltro } from "./opcoesFiltros";
 
 interface FiltrosFrutasProps {
   filtroAtivo: FiltroFruta;

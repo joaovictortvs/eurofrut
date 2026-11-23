@@ -3,7 +3,7 @@ import type { Fruta, FiltroFruta } from "~/types/fruta";
 import { Carrossel } from "./Carrossel";
 import { frutas } from "./dadosFrutas";
 import { FiltrosFrutas } from "./FiltrosFrutas";
-import { filtrarFrutas } from "./filtrosFrutas";
+import { filtrarFrutas } from "./opcoesFiltros";
 
 /** Id da seção do formulário de cotação (ver "IDs das seções" no README). */
 const ID_SECAO_COTACAO = "cotacao";
