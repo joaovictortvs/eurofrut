@@ -5,6 +5,8 @@ import { Formulario } from "../components/formulario/Formulario";
 import { BotaoWhatsApp } from "../components/BotaoWhatsApp";
 import { Rodape } from "../components/rodape/Rodape";
 import { SecaoFrutas } from "../components/frutas/SecaoFrutas";
+import { SecaoQualidade } from "../components/qualidade/SecaoQualidade";
+import { SecaoDimensoes } from "../components/dimensoes/SecaoDimensoes";
 
 
 const SITE_URL = "https://eurofrut.vercel.app";
@@ -40,7 +42,8 @@ export default function Home() {
       <Header />
 
       <SecaoFrutas />
-
+      <SecaoQualidade />
+      <SecaoDimensoes />
       <Formulario />
       <BotaoWhatsApp />
       <Rodape />
