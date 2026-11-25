@@ -91,9 +91,12 @@ export function SecaoDimensoes() {
       </h2>
 
       <p
-        className="mx-auto mt-4 max-w-3xl text-center font-medium"
+        className="mx-auto mt-4 max-w-3xl text-center"
         style={{
+          fontFamily: "var(--fonte-principal)",
           fontSize: "clamp(1rem, 1.5vw, 1.75rem)",
+          lineHeight: 1.2,
+          letterSpacing: "var(--card-desc-tracking)",
           color: "var(--texto-principal)",
         }}
       >
