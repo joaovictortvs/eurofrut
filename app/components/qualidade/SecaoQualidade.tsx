@@ -108,9 +108,12 @@ export function SecaoQualidade() {
       style={{ backgroundColor: "var(--fundo-pagina)", ...cores }}
     >
       <p
-        className="mx-auto max-w-3xl text-center font-medium"
+        className="mx-auto max-w-3xl text-center"
         style={{
+          fontFamily: "var(--fonte-principal)",
           fontSize: "clamp(1rem, 1.5vw, 1.75rem)",
+          lineHeight: 1.2,
+          letterSpacing: "var(--card-desc-tracking)",
           color: "var(--texto-principal)",
         }}
       >
