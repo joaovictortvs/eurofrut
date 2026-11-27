@@ -16,7 +16,7 @@ const estiloSecao = {
   "--card-fruta-gap-cards": "24px",
   "--frutas-ponto-ativo": "#E37A24",
   "--frutas-ponto": "#E2E0D4",
-  backgroundColor: "#EFEFE7",
+  backgroundColor: "var(--fundo-pagina)", // mesmo fundo da seção de qualidade
   fontFamily: '"Plus Jakarta Sans", var(--fonte-principal)',
 } as CSSProperties;
 
@@ -116,15 +116,21 @@ function CardFruta({ fruta, aoSolicitarCotacao }: { fruta: Fruta; aoSolicitarCot
 
         <div className="flex flex-col gap-2 px-2 pt-5">
           <h3 className="text-2xl leading-8 font-bold text-[#14261C]">{fruta.nome}</h3>
-          <p className="text-xs leading-[19.5px] text-[#68706B]">{fruta.descricao}</p>
-          <ul className="m-0 flex list-none flex-wrap gap-2 p-0 pt-2">
-            <li className="rounded-lg border border-[#E2E0D4] bg-[#F5F4EE] px-2.5 pt-[3px] pb-[4.5px] text-[11px] leading-[16.5px] font-semibold text-[#1A211E]">
-              {fruta.embalagem}
-            </li>
-            <li className="rounded-lg border border-[#FDE68A]/50 bg-[#FFFBEB] px-2.5 pt-[3px] pb-[4.5px] text-[11px] leading-[16.5px] font-semibold text-[#E37A24]">
-              {fruta.disponibilidade}
-            </li>
-          </ul>
+          {fruta.descricao && <p className="text-xs leading-[19.5px] text-[#68706B]">{fruta.descricao}</p>}
+          {(fruta.embalagem || fruta.disponibilidade) && (
+            <ul className="m-0 flex list-none flex-wrap gap-2 p-0 pt-2">
+              {fruta.embalagem && (
+                <li className="rounded-lg border border-[#E2E0D4] bg-[#F5F4EE] px-2.5 pt-[3px] pb-[4.5px] text-[11px] leading-[16.5px] font-semibold text-[#1A211E]">
+                  {fruta.embalagem}
+                </li>
+              )}
+              {fruta.disponibilidade && (
+                <li className="rounded-lg border border-[#FDE68A]/50 bg-[#FFFBEB] px-2.5 pt-[3px] pb-[4.5px] text-[11px] leading-[16.5px] font-semibold text-[#E37A24]">
+                  {fruta.disponibilidade}
+                </li>
+              )}
+            </ul>
+          )}
         </div>
       </div>
 
