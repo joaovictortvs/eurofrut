@@ -8,13 +8,14 @@ export interface Fruta {
   /** Identificador único e estável (usado como key do React). */
   id: string;
   nome: string;
-  descricao: string;
+  /** Opcional enquanto o texto oficial não foi entregue. */
+  descricao?: string;
   /** Opcional enquanto a imagem oficial não foi entregue. */
   imagem?: { src: string; alt: string };
   /** Mercados atendidos. Vazio = classificação ainda não informada. */
   categorias: CategoriaFruta[];
   /** Peso ou tipo de embalagem. Ex.: "Caixa 4kg". */
-  embalagem: string;
+  embalagem?: string;
   /** Período de disponibilidade. Ex.: "Jun — Mar". */
-  disponibilidade: string;
+  disponibilidade?: string;
 }
