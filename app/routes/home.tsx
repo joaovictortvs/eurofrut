@@ -4,7 +4,9 @@ import VoltarAoTopo from "../components/VoltarAoTopo";
 import { Formulario } from "../components/formulario/Formulario";
 import { BotaoWhatsApp } from "../components/BotaoWhatsApp";
 import { Rodape } from "../components/rodape/Rodape";
+import { SecaoPersona } from "../components/persona/SecaoPersona";
 import { SecaoFrutas } from "../components/frutas/SecaoFrutas";
+import { SecaoFluxo } from "../components/fluxo/SecaoFluxo";
 import { SecaoQualidade } from "../components/qualidade/SecaoQualidade";
 import { SecaoDimensoes } from "../components/dimensoes/SecaoDimensoes";
 
@@ -41,7 +43,9 @@ export default function Home() {
     <main className="w-full min-h-screen bg-white">
       <Header />
 
+      <SecaoPersona />
       <SecaoFrutas />
+      <SecaoFluxo />
       <SecaoQualidade />
       <SecaoDimensoes />
       <Formulario />
